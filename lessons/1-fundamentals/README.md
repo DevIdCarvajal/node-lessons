@@ -48,24 +48,24 @@ Esto genera una carpeta node_modules/ en el proyecto con el paquete instalado y 
 
 Esto ayuda a que cuando un proyecto se comparte o distribuye (por ejemplo, mediante GitHub u otros medios), solo se incluya el código fuente original y no la carpeta node_modules/ completa. Para ello, se usa simplemente:
 
-    ```
-    npm install
-    ```
+```
+npm install
+```
 
 Si se desea instalar solamente "en desarrollo", entonces hay que añadir la opción --save-dev:
 
-    ```
-    npm install cypress --save-dev
-    ```
+```
+npm install mocha --save-dev
+```
 
 Si es un paquete global, que afecta a todo el sistema operativo, se añade la opción -g:
 
-    ```
-    npm install -g nodemon
-    ```
+```
+npm install -g nodemon
+```
 
 También se pueden ejecutar algunos paquetes sin instalarlos:
 
-    ```
-    npx live-server
-    ```
+```
+npx live-server
+```
