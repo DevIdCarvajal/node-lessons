@@ -18,7 +18,7 @@
 2. Añadir estas dos líneas:
 
     ```
-    msg = "Hello World"
+    const msg = "Hello World"
     console.log(msg)
     ```
 
