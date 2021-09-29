@@ -1,0 +1,10 @@
+{
+    "nombre": "Espagueti",
+    "apellido": "Volador",
+    "age": 19,
+    "habilidades": ["Node", "Mongo"],
+    "vacaciones": {
+        "lugar1": "Benidorm",
+        "lugar2": "Groenlandia"
+    }
+}

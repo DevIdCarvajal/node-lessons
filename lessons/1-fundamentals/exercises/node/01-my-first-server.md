@@ -28,3 +28,10 @@ Se pide:
         ```
     
     - Cuando le pidan algo a "/timenow", devolver la hora actual del servidor.
+
+    - Si le piden cualquier otra cosa, devolver un 404 con el mensaje:
+
+        ```
+        Estos no son los androides que buscas
+        ```
+    
