@@ -1,4 +1,4 @@
-# 0. Primeros pasos con Python
+# 0. Primeros pasos con Node.js
 
 ## Índice
 
