@@ -18,6 +18,10 @@ server.use(express.json());
 
 // Endpoints
 
+server.get('/', (req, res) => {
+    res.send("<h1>Un mensaje de texto</h1>");
+});
+
 server.get('/myjson', (req, res) => {
 
     // JSON response
