@@ -1,4 +1,4 @@
-# 0. Primeros pasos con Node.js
+# 1. Primeros pasos con Node.js
 
 ## Índice
 
@@ -69,3 +69,7 @@ También se pueden ejecutar algunos paquetes sin instalarlos:
 ```
 npx live-server
 ```
+
+## Referencias
+
+[...]

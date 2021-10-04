@@ -16,11 +16,7 @@ server.use(frontFolder);
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
-// Endpoints
-
-server.get('/', (req, res) => {
-    res.send("<h1>Un mensaje de texto</h1>");
-});
+// ----- Endpoints -----
 
 server.get('/myjson', (req, res) => {
 
@@ -36,6 +32,35 @@ server.get('/myjson', (req, res) => {
     }
 
     res.send(respuesta);
+});
+
+server.get('/hello', (req, res) => {
+    const username = req.query.user;
+    const password = req.query.pass;
+
+    res.send("Hello, " + username);
+});
+
+server.post('/signup', (req, res) => {
+    const name = req.body.firstname;
+    const email = req.body.email;
+    const country = req.body.country;
+    
+    // Business logic
+    if(country === "es") {
+        console.log("Enviar el email en castellano");
+    }
+    else
+    if(country === "uk") {
+        console.log("Send english email");
+    }
+
+    res.redirect('/contact.html');
+
+    // 1: Cliente -- POST --> Servidor
+    // 2: Servidor recoge los datos
+    // 3: Servidor procesa los datos
+    // 4: Cliente <-- status code -- Servidor
 });
 
 server.use((req, res) => res.status(404).send('Estos no son los androides que buscas'));
