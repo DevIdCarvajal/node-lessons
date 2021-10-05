@@ -21,4 +21,13 @@ const characters = [
   }
 ];
 
-exports.characters = characters;
+exports.characters = {
+  getCharacters: () => characters,
+  findCharacterByName: characterName => characters.filter(
+                                      currentCharacter => currentCharacter.username === characterName
+                                    )[0],
+  findCharactersByProfile: profile => characters.filter(
+                                      currentCharacter => currentCharacter.role === profile
+                                    ),
+  addNewCharacter: character => characters.push(character)
+};
