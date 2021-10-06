@@ -3,12 +3,6 @@ const router = express.Router();
 
 const data = require('../data/characters');
 
-// My custom router middleware
-router.use((req, res, next) => {
-    console.log('Time request: ', Date.now());
-    next();
-});
-
 router.get('/', (req, res) => {
     res.send(data.characters.getCharacters());
 });
@@ -42,7 +36,6 @@ router.get('/profile', (req, res) => {
 });
 
 router.post('/new', (req, res) => {
-
     data.characters.addNewCharacter(req.body);
 
     res.send("Ook");

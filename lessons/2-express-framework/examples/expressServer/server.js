@@ -2,6 +2,7 @@
 
 const path = require('path');
 const express = require('express');
+//const router = express.Router();
 require('dotenv').config();
 
 const characterRoutes = require('./routes/characters');
@@ -17,47 +18,20 @@ const credentials = {
 //    (Configuración inicial)
 
 const server = express();
-//const port = process.env.PORT;
-const port = 8080;
+const port = process.env.PORT;
 
 // Folder with my frontend
+/*
 const frontFolder = express.static(__dirname + '/front');
 server.use(frontFolder);
-
-//server.use(express.static(path.join(__dirname, 'front'), {extensions:['html']}));
+*/
+server.use(express.static(path.join(__dirname, 'front'), {extensions:['html']}));
 
 // JSON support
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
-/*
-router.use((req, res, next) => {
-    console.log('Time: ', Date.now());
-    next();
-});
-*/
-
-
-
-
-// /characters/ 
-// /characters/name
-// /characters/Fry/23
-// /characters/profile
-// /characters/new
-// /characters/update
-// /characters/delete
-
-// /monsters/ 
-// /monsters/name
-// /monsters/Fry/23
-// /monsters/profile
-// /monsters/new
-// /monsters/update
-// /monsters/delete
-
 server.use('/characters', characterRoutes);
-//server.use('/monters', monsterRoutes);
 
 // ----- Endpoints -----
 
@@ -99,13 +73,9 @@ server.post('/signup', (req, res) => {
     }
 
     res.redirect('/contact');
-
-    // 1: Cliente -- POST --> Servidor
-    // 2: Servidor recoge los datos
-    // 3: Servidor procesa los datos
-    // 4: Cliente <-- status code -- Servidor
 });
 
+/*
 let token = "6g4abc6801fe6g4abc6801fe6g4abc6801fe";
 
 server.post('/login', (req, res) => {
@@ -134,6 +104,7 @@ server.all('/auth', (req, res, next) => {
 (req, res) => {
     res.redirect('/dashboard.html');
 });
+*/
 
 server.use((req, res) => res.status(404).send('Estos no son los androides que buscas'));
 
