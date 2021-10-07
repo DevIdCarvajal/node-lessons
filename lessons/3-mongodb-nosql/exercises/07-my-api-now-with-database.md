@@ -4,7 +4,7 @@
 
 Se pide, a partir de la API implementada en ejercicios anteriores:
 
-1. Que todos los endpoints pasen a tener la notación "API REST", es decir, la de parámetros definidos de esta forma:
+1. Que todos los endpoints pasen a tener la notación "API REST", es decir, la de parámetros definidos de esta forma (por ejemplo):
 
 ```
 /characters/Fry

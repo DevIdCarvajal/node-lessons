@@ -52,10 +52,15 @@ server.get('/myjson', (req, res) => {
 });
 
 server.get('/hello', (req, res) => {
-    const username = req.query.user;
-    const password = req.query.pass;
 
-    res.send("Hello, " + username);
+    setTimeout(() => {
+        if (req.query.user) {
+            res.send("Hello, " + req.query.user);
+        }
+        else {
+            res.send("Hello, nobody");
+        }
+    }, 2000);
 });
 
 server.post('/signup', (req, res) => {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Pedir texto</button>
+    <button id="myButton2">Pedir texto</button>
+
+    <script>
+        function viejunerFetchText() {
+            fetch('http://localhost:8080/hello?user=David')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.log(error));
+        }
+
+        async function modernFetchText() {
+            try {
+                const response = await fetch('http://localhost:8080/hello?user=David');
+                const data = await response.text();
+                
+                console.log(data);
+            }
+            catch (exception) {
+                console.log(exception);
+            }
+        }
+        
+        // Event handling
+        document
+            .getElementById('myButton')
+            .addEventListener('click', viejunerFetchText ); // callback
+        document
+            .getElementById('myButton2')
+            .addEventListener('click', modernFetchText );
+    </script>
+</body>
+</html>
