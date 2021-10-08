@@ -26,8 +26,7 @@ router.post('/', async (req, res, next) => {
   } = req.body
 
   try {
-    const result = await BooksModel.create({
-      title, author, creation: Date.now(), isbn, editions, year, sales, publisher
+    const result = await BooksModel.create({ title, author, creation: Date.now(), isbn, editions, year, sales, publisher
     })
 
     res.status(200).json({
