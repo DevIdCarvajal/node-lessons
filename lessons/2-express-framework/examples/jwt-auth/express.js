@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 // Main Code Here //
 // Generating JWT
 app.post("/user/generateToken", (req, res) => {
+	console.log("gt")
 	// Validate User Here
 
     //db.users.find({ user: req.body.user, pass: req.body.pass })
@@ -16,14 +17,13 @@ app.post("/user/generateToken", (req, res) => {
 
             // Then generate JWT Token
 
-            let jwtSecretKey = process.env.JWT_SECRET_KEY;
             let data = {
                 time: Date(),
                 userId: 12,
             }
 
-            const token = jwt.sign(data, jwtSecretKey);
-            //const token = jwt.sign(data, jwtSecretKey, { algorithm: "RS512" });
+            //const token = jwt.sign(data, process.env.JWT_SECRET_KEY);
+            const token = jwt.sign(data, process.env.JWT_SECRET_KEY, { algorithm: "RS512" });
 
             res.send(token);
         //})
@@ -34,14 +34,11 @@ app.get("/user/validateToken", (req, res) => {
 	// Tokens are generally passed in header of request
 	// Due to security reasons.
 
-	let tokenHeaderKey = process.env.TOKEN_HEADER_KEY;
-	let jwtSecretKey = process.env.JWT_SECRET_KEY;
-
 	try {
-		const token = req.header(tokenHeaderKey);
+		const token = req.header(process.env.TOKEN_HEADER_KEY);
 
-		const verified = jwt.verify(token, jwtSecretKey);
-        //const verified = jwt.verify(token, jwtSecretKey, { algorithms: ["RS512"] });
+		const verified = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        //const verified = jwt.verify(token, process.env.JWT_SECRET_KEY, { algorithms: ["RS512"] });
 
 		if(verified){
 			return res.send("Successfully Verified");
