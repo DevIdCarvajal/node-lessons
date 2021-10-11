@@ -22,8 +22,7 @@ app.post("/user/generateToken", (req, res) => {
                 userId: 12,
             }
 
-            //const token = jwt.sign(data, process.env.JWT_SECRET_KEY);
-            const token = jwt.sign(data, process.env.JWT_SECRET_KEY, { algorithm: "RS512" });
+            const token = jwt.sign(data, process.env.JWT_SECRET_KEY);
 
             res.send(token);
         //})
@@ -38,7 +37,6 @@ app.get("/user/validateToken", (req, res) => {
 		const token = req.header(process.env.TOKEN_HEADER_KEY);
 
 		const verified = jwt.verify(token, process.env.JWT_SECRET_KEY);
-        //const verified = jwt.verify(token, process.env.JWT_SECRET_KEY, { algorithms: ["RS512"] });
 
 		if(verified){
 			return res.send("Successfully Verified");
