@@ -2,29 +2,22 @@
 
 const path = require('path');
 const express = require('express');
-//const router = express.Router();
 require('dotenv').config();
 
 const characterRoutes = require('./routes/characters');
 
-// ----- Data -----
-
-const credentials = {
-    userEmail: 'davidcarvajalg@gmail.com',
-    userPass: '1234admin'
-};
-
 // ----- Define constants -----
-//    (Configuración inicial)
 
 const server = express();
 const port = process.env.PORT;
 
 // Folder with my frontend
 /*
+// With extensions version
 const frontFolder = express.static(__dirname + '/front');
 server.use(frontFolder);
 */
+// Without extensions version
 server.use(express.static(path.join(__dirname, 'front'), {extensions:['html']}));
 
 // JSON support
@@ -79,37 +72,6 @@ server.post('/signup', (req, res) => {
 
     res.redirect('/contact');
 });
-
-/*
-let token = "6g4abc6801fe6g4abc6801fe6g4abc6801fe";
-
-server.post('/login', (req, res) => {
-    if(req.body.email === credentials.userEmail && req.body.password === credentials.userPass) {
-        
-        // Send "auth token" = 6g4abc6801fe6g4abc6801fe6g4abc6801fe
-        res.redirect('/dashboard.html')
-    }
-    else {
-        res.redirect('/login.html')
-    }
-});
-
-server.all('/auth', (req, res, next) => {
-    if(req.body.token === token) {
-        next()
-    }
-    else {
-        res.redirect('/login.html');
-    }
-},
-(req, res, next) => {
-    // ...
-    next();
-},
-(req, res) => {
-    res.redirect('/dashboard.html');
-});
-*/
 
 server.use((req, res) => res.status(404).send('Estos no son los androides que buscas'));
 
