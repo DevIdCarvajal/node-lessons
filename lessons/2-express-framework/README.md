@@ -22,3 +22,7 @@
 [JWT](https://jwt.io/)  
 [Authenticación básica con JWT](https://www.geeksforgeeks.org/jwt-authentication-with-node-js/)  
 [Authenticación con Cookies](https://www.section.io/engineering-education/what-are-cookies-nodejs/)
+
+[OAuth](https://oauth.net/)  
+[¿Qué es OAuth?](https://www.redeszone.net/tutoriales/seguridad/que-es-oauth/)  
+[OAuth 2.0 Simplificado (con playground)](https://www.oauth.com/)
