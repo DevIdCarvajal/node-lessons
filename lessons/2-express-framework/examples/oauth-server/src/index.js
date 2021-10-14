@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 4000
 server.use(
   cors({
     origin: true,
-    credentials: true,
+    credentials: true
   })
 )
 server.use(express.json())

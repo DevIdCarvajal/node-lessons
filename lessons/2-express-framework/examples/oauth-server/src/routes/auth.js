@@ -7,6 +7,7 @@ const router = express.Router()
 
 // Acceder al perfil solo si hay una cookie de validación
 router.get('/profile', [isAuthenticated], (req, res) => res.status(200).json(req.user))
+router.get('/config', [isAuthenticated], (req, res) => res.text("hola buenas tardes"))
 
 router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })

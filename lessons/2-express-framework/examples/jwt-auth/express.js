@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 // Main Code Here //
 // Generating JWT
 app.post("/user/generateToken", (req, res) => {
-	console.log("gt")
+	
 	// Validate User Here
 
     //db.users.find({ user: req.body.user, pass: req.body.pass })
